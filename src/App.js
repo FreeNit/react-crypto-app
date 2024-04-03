@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Layout } from "antd";
+
+import AppHeader from "./components/layout/AppHeader.jsx";
+import AppSider from "./components/layout/AppSider.jsx";
+import AppContent from "./components/layout/AppContent.jsx";
+import { CryptoContextProvider } from "./context/crypto-context.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CryptoContextProvider>
+      <Layout>
+        <AppHeader />
+        <Layout>
+          <AppSider />
+          <AppContent />
+        </Layout>
+      </Layout>
+    </CryptoContextProvider>
   );
 }
 
